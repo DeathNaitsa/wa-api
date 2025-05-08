@@ -1,0 +1,37 @@
+{
+  "name": "@DeathNaitsa/wa-api",
+  "version": "1.5.31",
+  "description": "Multi Session Whatsapp Library",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeathNaitsa/wa-api.git"
+  },
+  "homepage": "https://github.com/DeathNaitsa/wa-api#readme",
+  "bugs": {
+    "url": "https://github.com/DeathNaitsa/wa-api/issues"
+  },
+  "files": [
+    "dist/**/*"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node ./dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "run-script": "node ./dist/index.js"
+  },
+  "author": "DeathNaitsa",
+  "license": "ISC",
+  "dependencies": {
+    "@adiwajshing/keyed-db": "^0.2.4",
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.7.16",
+    "mime": "^4.0.7",
+    "pino": "^9.6.0",
+    "qrcode-terminal": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/mime": "^4.0.0"
+  }
+}
