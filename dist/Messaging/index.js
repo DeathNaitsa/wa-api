@@ -83,8 +83,8 @@ const sessionCache = new Map();
 function getCachedSession(sessionId) {
   let session = sessionCache.get(sessionId);
   if (!session) {
-    session = getSession(sessionId);
-    if (!session) throw new WhatsappError(Messages.sessionNotFound(sessionId));
+    session = Socket_1.getSession(sessionId);
+    if (!session) throw new Error_1.WhatsappError(Defaults_1.Messages.sessionNotFound(sessionId));
     sessionCache.set(sessionId, session);
   }
   return session;
@@ -109,7 +109,7 @@ async function sendMessage(sessionId, jid, content, options) {
     return await session.sendMessage(destJid, content, options || {});
   } catch (err) {
     // Wrap Baileys errors into WhatsappError for consistency
-    throw new WhatsappError(
+    throw new Error_1.WhatsappError(
       `Failed to send message to ${destJid}: ${err.message}`,
       { cause: err }
     );

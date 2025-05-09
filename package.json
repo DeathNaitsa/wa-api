@@ -1,9 +1,10 @@
 {
-  "name": "@DeathNaitsa/wa-api",
-  "version": "1.5.31",
+  "name": "@deathnaitsa/wa-api",
+  "version": "1.0.8",
   "description": "Multi Session Whatsapp Library",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "licenses": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DeathNaitsa/wa-api.git"
@@ -27,11 +28,11 @@
     "@adiwajshing/keyed-db": "^0.2.4",
     "@hapi/boom": "^10.0.1",
     "@whiskeysockets/baileys": "^6.7.16",
-    "mime": "^4.0.7",
+    "mime": "^3.0.0",
     "pino": "^9.6.0",
     "qrcode-terminal": "^0.12.0"
   },
   "devDependencies": {
-    "@types/mime": "^4.0.0"
+    "@types/mime": "^3.0.1"
   }
 }

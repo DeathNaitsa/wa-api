@@ -5,7 +5,7 @@ Leichte Bibliothek zur Verwaltung mehrerer WhatsApp-Sessions – mit **einer** u
 ## 📦 Installation
 
 ```bash
-npm install @DeathNaitsa/wa-api@latest
+npm install @deathnaitsa/wa-api@latest
 ```
 
 ## 🔌 Import & Setup
@@ -14,10 +14,10 @@ Verwende den klassischen Import-Stil:
 
 ```js
 // CommonJS
-const wa = require('@DeathNaitsa/wa-api');
+const wa = require('@deathnaitsa/wa-api');
 
 // ES Module
-import * as wa from '@DeathNaitsa/wa-api';
+import * as wa from '@deathnaitsa/wa-api';
 ```
 
 Danach stehen dir alle Funktionen unter dem Namespace `wa` zur Verfügung.
@@ -49,7 +49,7 @@ Eine **einzige** Funktion für **Text**, **Media**, **Polls**, **Reaktionen**, *
 ```js
 await wa.sendMessage(
   'meineSession',             // sessionId
-  '491234567890@c.us',         // JID oder Telefonnummer
+  '49123342524523@s.whatsapp.net',         // JID oder Telefonnummer
   content,                     // AnyMessageContent-Objekt
   options                      // MiscMessageGenerationOptions (optional)
 );
@@ -105,4 +105,4 @@ try {
 
 ---
 
-© 2025 `@DeathNaitsa/wa-api` • Support: [sebloidl13@gmail.com](mailto:sebloidl13@gmail.com)
+© 2025 `@deathnaitsa/wa-api` • Support: [sebloidl13@gmail.com](mailto:sebloidl13@gmail.com)
