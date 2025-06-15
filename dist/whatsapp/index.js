@@ -36,7 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Whatsapp = void 0;
-const baileys_1 = __importStar(require("@whiskeysockets/baileys"));
+const baileys_1 = __importStar(require("@deathnaitsa/baileys"));
 const Defaults_1 = require("../Defaults");
 const Socket_1 = require("../Socket/Socket");
 const fs_1 = __importDefault(require("fs"));

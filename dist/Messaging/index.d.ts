@@ -1,43 +1,44 @@
-import { proto } from "@whiskeysockets/baileys";
-import { SendMediaTypes, SendMessageTypes, SendReadTypes, SendTypingTypes } from "../Types";
-export declare const sendTextMessage: ({ sessionId, to, text, isGroup, ...props }: SendMessageTypes) => Promise<proto.WebMessageInfo | undefined>;
-export declare const sendImage: ({ sessionId, to, text, isGroup, media, ...props }: SendMediaTypes) => Promise<proto.WebMessageInfo | undefined>;
-export declare const sendVideo: ({ sessionId, to, text, isGroup, media, ...props }: SendMediaTypes) => Promise<proto.WebMessageInfo | undefined>;
-export declare const sendDocument: ({ sessionId, to, text, isGroup, media, filename, ...props }: SendMediaTypes & {
-    filename: string;
-}) => Promise<proto.WebMessageInfo | undefined>;
+
+
+/**
+ * Send a message to target
+ *
+ * @param sessionId - Session ID
+ * @param jid - Target
+ * @param content - Message content
+ * @param options - Message options
+ */
 export declare function sendMessage(
     sessionId: string,
     jid: string,
-    content: import("@whiskeysockets/baileys").AnyMessageContent,
-    options?: import("@whiskeysockets/baileys").MiscMessageGenerationOptions
-  ): Promise<import("@whiskeysockets/baileys").proto.WebMessageInfo>;
-  
-export declare const kickusr: ({ sessionId, to, text }: SendMessageTypes) => Promise<proto.WebMessageInfo | undefined>;
-export declare const del: ({ sessionId, to, id,sender }: SendMessageTypes) => Promise<proto.WebMessageInfo | undefined>;
-
-export declare const sendVoiceNote: ({ sessionId, to, isGroup, media, ...props }: Omit<SendMediaTypes, "text">) => Promise<proto.WebMessageInfo | undefined>;
-export declare const sendSticker: ({ sessionId, to, isGroup, media, ...props }: SendMediaTypes) => Promise<proto.WebMessageInfo | undefined>;
-/**
- * Give typing effect to target
+    content: import("@deathnaitsa/baileys").AnyMessageContent,
+    options?: import("@deathnaitsa/baileys").MiscMessageGenerationOptions
+  ): Promise<import("@deathnaitsa/baileys").proto.WebMessageInfo>;
+    /**
+ * Sendet einen rohen WAMessage-Stanza an WhatsApp.
  *
- * Looks like human typing
- *
- *
- * @param sessionId - Session ID
- * @param to - Target
- * @param duration - Duration in miliseconds typing effect will appear
+ * @param sessionId  Deine Session-ID
+ * @param jid        Ziel-JID oder Telefonnummer (z. B. '491234567890@s.whatsapp.net' oder 'status@broadcast')
+ * @param content    Raw-Message-Node (z. B. protocolMessage, videoMessage, etc.)
+ * @param options    Optional: Relay-Parameter wie messageId, participant, additionalNodes, statusJidList
+ * @returns          Promise mit der gesendeten Nachricht-ID (msgId)
  */
-export declare const sendTyping: ({ sessionId, to, duration, isGroup, }: SendTypingTypes) => Promise<void>;
 /**
- * Give typing effect to target
+ * Low-level relayMessage-Wrapper für direkten Baileys-Stanza Dispatch.
  *
- * Looks like human typing
+ * Sendet ein rohes WAMessage-Stanza (z.B. protocolMessage, disappearingMessagesInChat,
+ * videoMessage, etc.) direkt an WhatsApp über die interne `relayMessage`-Methode.
  *
- *
- * @param sessionId - Session ID
- * @param to - Target
- * @param duration - Duration in miliseconds typing effect will appear
+ * @param sessionId  Deine Multi-Session-ID
+ * @param jid        Ziel-JID oder Telefonnummer (z.B. '491234567890@s.whatsapp.net' oder 'status@broadcast')
+ * @param content    Raw-Message-Node (proto.WebMessageInfo oder AnyMessageContent-ähnlich)
+ * @param options    Optional: Relay-Parameter wie `messageId`, `participant`, `additionalNodes`,
+ *                   `statusJidList`, `useCachedGroupMetadata`, usw.
+ * @returns          Promise mit der gesendeten Nachricht-ID (`msgId`)
  */
-export declare const readMessage: ({ sessionId, key }: SendReadTypes) => Promise<void>;
-//# sourceMappingURL=index.d.ts.map
+export declare function relayMessage(
+  sessionId: string,
+  jid: string,
+  content: any,
+  options?: import('@deathnaitsa/baileys').MiscMessageGenerationOptions
+): Promise<string>;

@@ -36,7 +36,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onPairingCode = exports.onMessageUpdate = exports.onConnecting = exports.onDisconnected = exports.onConnected = exports.onQRUpdated = exports.onMessageReceived = exports.loadSessionsFromStorage = exports.getSession = exports.getAllSession = exports.deleteSession = exports.startWhatsapp = exports.startSession = void 0;
-const baileys_1 = __importStar(require("@whiskeysockets/baileys"));
+const baileys_1 = __importStar(require("@deathnaitsa/baileys"));
 const pino_1 = __importDefault(require("pino"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
@@ -292,22 +292,22 @@ const getAllSessionData = () => {
 exports.getAllSessionData = getAllSessionData;
 
 async function loadSessionsFromStorage() {
-    const dirPath = path.resolve(CREDENTIALS.DIR_NAME);
+    const dirPath = path_1.default.resolve(Defaults_1.CREDENTIALS.DIR_NAME);
     const loadedSessions = [];
   
     // Ordner anlegen, falls nicht existiert
-    if (!fs.existsSync(dirPath)) {
-      fs.mkdirSync(dirPath, { recursive: true });
+    if (!fs_1.default.existsSync(dirPath)) {
+      fs_1.default.mkdirSync(dirPath, { recursive: true });
     }
   
     try {
-      const entries = await fs.promises.readdir(dirPath);
+      const entries = await fs_1.default.promises.readdir(dirPath);
   
       for (const entry of entries) {
-        const fullPath = path.join(dirPath, entry);
+        const fullPath = path_1.default.join(dirPath, entry);
         let stat;
         try {
-          stat = await fs.promises.stat(fullPath);
+          stat = await  fs_1.default.promises.stat(fullPath);
         } catch {
           // Wenn sich die Datei zwischenzeitlich entfernt hat o.Ä., überspringen
           continue;
