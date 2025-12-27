@@ -59,6 +59,8 @@ fi
 
 if git push; then
     echo -e "${GREEN}✅ Pushed to Git successfully!${RESET}"
+elif git push --set-upstream origin main; then
+    echo -e "${GREEN}✅ Pushed to Git successfully! (upstream set)${RESET}"
 else
     echo -e "${RED}❌ Git push failed!${RESET}"
     exit 1
