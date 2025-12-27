@@ -2,9 +2,6 @@
 chcp 65001 >nul
 setlocal enabledelayedexpansion
 
-:: Ins Skript-Verzeichnis wechseln
-cd /d "%~dp0"
-
 echo.
 echo ╔═══════════════════════════════════════════════════════════════╗
 echo ║            🚀 WhatsApp API Auto Deploy Script 🚀              ║
@@ -17,6 +14,18 @@ set "RED=[91m"
 set "YELLOW=[93m"
 set "BLUE=[94m"
 set "RESET=[0m"
+
+:: Prüfe ob wir in einem UNC-Pfad sind und nutze WSL
+echo %CD% | findstr /C:"\\wsl.localhost" >nul
+if %errorlevel% equ 0 (
+    echo %YELLOW%📍 Detected WSL path, using WSL bash for execution...%RESET%
+    wsl bash -c "cd '/home/seblo/Nishi API/wa-api' && ./publish.sh"
+    pause
+    exit /b %errorlevel%
+)
+
+:: Ins Skript-Verzeichnis wechseln
+cd /d "%~dp0"
 
 :: Schritt 1: NPM Build
 echo %BLUE%[1/5] 📦 Building project...%RESET%

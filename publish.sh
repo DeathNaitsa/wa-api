@@ -1,7 +1,13 @@
 #!/bin/bash
 
-# Ins Skript-Verzeichnis wechseln
-cd "$(dirname "$0")"
+# Ins Skript-Verzeichnis wechseln (funktioniert mit WSL-Pfaden)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR" || {
+    echo "Failed to change to script directory"
+    exit 1
+}
+
+echo "Working directory: $(pwd)"
 
 # Farben für die Ausgabe
 GREEN='\033[0;32m'
