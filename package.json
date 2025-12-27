@@ -1,0 +1,47 @@
+﻿{
+  "name": "@deathnaitsa/wa-api",
+  "version": "2.0.4",
+  "description": "Minimalistic & stable WhatsApp Multi-Device API with advanced session management",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "author": "DeathNaitsa",
+  "license": "MIT",
+  "keywords": [
+    "whatsapp",
+    "baileys",
+    "multi-device",
+    "api",
+    "bot",
+    "automation",
+    "session-management"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deathnaitsa/wa-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/deathnaitsa/wa-api/issues"
+  },
+  "homepage": "https://github.com/deathnaitsa/wa-api#readme",
+  "scripts": {
+    "build": "node build.js",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "baileys": "latest",
+    "pino": "latest",
+    "qrcode-terminal": "latest",
+    "qrcode": "^1.5.4",
+    "wa-sticker-formatter": "^4.4.4"
+  },
+  "devDependencies": {
+    "javascript-obfuscator": "^4.1.0"
+  }
+}
